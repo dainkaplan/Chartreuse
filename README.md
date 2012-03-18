@@ -9,7 +9,7 @@ Contains source and a fully working universal app project.
 
 ## Using (very easy!) ##
 
-Basically, grab the two main files (`PieChartView.[h|m]`) from `Classes/` and add them to your project or create a submodule or whatever). Then:
+Basically, grab the two main files (`PieChartView.[h|m]`) from `Classes/` and add them to your project (or create a submodule or whatever). Then:
 
 ```objective-c
 // Set a gradient to start 1/3 from the top, and continue to the bottom
