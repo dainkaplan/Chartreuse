@@ -9,34 +9,36 @@ Contains source and a fully working universal app project.
 
 ## Using (very easy!) ##
 
+Basically, grab the two main files (`PieChartView.[h|m]`) from `Classes/` and add them to your project (pr create a submodule or whatever). Then:
+
 ```objective-c
-	// Set a gradient to start 1/3 from the top, and continue to the bottom
-	[_pieChart setGradientFillStart:0.3 andEnd:1.0];
-	// Use black 0.7 opaque for our gradient
-	[_pieChart setGradientFillColor:PieChartItemColorMake(0.0, 0.0, 0.0, 0.7)];
+// Set a gradient to start 1/3 from the top, and continue to the bottom
+[_pieChart setGradientFillStart:0.3 andEnd:1.0];
+// Use black 0.7 opaque for our gradient
+[_pieChart setGradientFillColor:PieChartItemColorMake(0.0, 0.0, 0.0, 0.7)];
 
-	// Create three data items to show in our pie chart
-	[_pieChart addItemValue:0.4 withColor:PieChartItemColorMake(1.0, 0.5, 1.0, 0.8)];
-	[_pieChart addItemValue:0.3 withColor:PieChartItemColorMake(0.5, 1.0, 0.5, 0.8)];
-	[_pieChart addItemValue:0.3 withColor:PieChartItemColorMake(0.5, 0.5, 1.0, 0.8)];
+// Create three data items to show in our pie chart
+[_pieChart addItemValue:0.4 withColor:PieChartItemColorMake(1.0, 0.5, 1.0, 0.8)];
+[_pieChart addItemValue:0.3 withColor:PieChartItemColorMake(0.5, 1.0, 0.5, 0.8)];
+[_pieChart addItemValue:0.3 withColor:PieChartItemColorMake(0.5, 0.5, 1.0, 0.8)];
 
-	// If the piechart is hidden, show it
-	[_pieChart setHidden:NO];
+// If the piechart is hidden, show it
+[_pieChart setHidden:NO];
 
-	// Force the drawRect: method to be called
-	[_pieChart setNeedsDisplay];
+// Force the drawRect: method to be called
+[_pieChart setNeedsDisplay];
 ```
 
 Or if you want to fade the pie chart in, you can do:
 
 ```objective-c
-	_pieChart.alpha = 0.0;
-	[_pieChart setHidden:NO];
-	[_pieChart setNeedsDisplay];
+_pieChart.alpha = 0.0;
+[_pieChart setHidden:NO];
+[_pieChart setNeedsDisplay];
 
-	// Animate the fade-in
-	[UIView beginAnimations:nil context:NULL];
-	[UIView setAnimationDuration:0.5];
-	_pieChart.alpha = 1.0;
-	[UIView commitAnimations];
+// Animate the fade-in
+[UIView beginAnimations:nil context:NULL];
+[UIView setAnimationDuration:0.5];
+_pieChart.alpha = 1.0;
+[UIView commitAnimations];
 ```
