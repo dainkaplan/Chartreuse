@@ -9,6 +9,7 @@ Contains source and a fully working universal app project.
 
 ## Using (very easy!) ##
 
+```objective-c
 	// Set a gradient to start 1/3 from the top, and continue to the bottom
 	[_pieChart setGradientFillStart:0.3 andEnd:1.0];
 	// Use black 0.7 opaque for our gradient
@@ -24,9 +25,11 @@ Contains source and a fully working universal app project.
 
 	// Force the drawRect: method to be called
 	[_pieChart setNeedsDisplay];
+```
 
 Or if you want to fade the pie chart in, you can do:
 
+```objective-c
 	_pieChart.alpha = 0.0;
 	[_pieChart setHidden:NO];
 	[_pieChart setNeedsDisplay];
@@ -36,3 +39,4 @@ Or if you want to fade the pie chart in, you can do:
 	[UIView setAnimationDuration:0.5];
 	_pieChart.alpha = 1.0;
 	[UIView commitAnimations];
+```
