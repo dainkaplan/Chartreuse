@@ -1,0 +1,310 @@
+// !$*UTF8*$!
+{
+	1D3623240D0F684500981E51 /* PieChartViewExampleAppDelegate.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {642, 591}}";
+			sepNavSelRange = "{155, 0}";
+			sepNavVisRange = "{0, 537}";
+		};
+	};
+	1D3623250D0F684500981E51 /* PieChartViewExampleAppDelegate.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {642, 1302}}";
+			sepNavSelRange = "{155, 0}";
+			sepNavVisRange = "{0, 1259}";
+		};
+	};
+	1D6058900D05DD3D006BFB54 /* PieChartViewExample */ = {
+		activeExec = 0;
+		executables = (
+			A5DE4EAF12016C6200ADABE2 /* PieChartViewExample */,
+		);
+	};
+	28D7ACF60DDB3853001CB0EB /* PieChartViewExampleViewController.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {642, 378}}";
+			sepNavSelRange = "{200, 0}";
+			sepNavVisRange = "{0, 371}";
+		};
+	};
+	28D7ACF70DDB3853001CB0EB /* PieChartViewExampleViewController.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {642, 1176}}";
+			sepNavSelRange = "{1695, 0}";
+			sepNavVisRange = "{1371, 649}";
+		};
+	};
+	29B97313FDCFA39411CA2CEA /* Project object */ = {
+		activeBuildConfigurationName = Debug;
+		activeExecutable = A5DE4EAF12016C6200ADABE2 /* PieChartViewExample */;
+		activeTarget = 1D6058900D05DD3D006BFB54 /* PieChartViewExample */;
+		addToTargets = (
+			1D6058900D05DD3D006BFB54 /* PieChartViewExample */,
+		);
+		codeSenseManager = A5DE4EBD12016C7200ADABE2 /* Code sense */;
+		executables = (
+			A5DE4EAF12016C6200ADABE2 /* PieChartViewExample */,
+		);
+		perUserDictionary = {
+			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					464,
+					20,
+					48,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
+			PBXConfiguration.PBXFileTableDataSource3.PBXFindDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFindDataSource_LocationID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					200,
+					478,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFindDataSource_MessageID,
+					PBXFindDataSource_LocationID,
+				);
+			};
+			PBXConfiguration.PBXTargetDataSource.PBXTargetDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					424,
+					60,
+					20,
+					48.16259765625,
+					43,
+					43,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXTargetDataSource_PrimaryAttribute,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+				);
+			};
+			PBXPerProjectTemplateStateSaveDate = 302083170;
+			PBXWorkspaceStateSaveDate = 302083170;
+		};
+		perUserProjectItems = {
+			A5DE4ECA12016CEB00ADABE2 /* PBXTextBookmark */ = A5DE4ECA12016CEB00ADABE2 /* PBXTextBookmark */;
+			A5DE4ECB12016CEB00ADABE2 /* PBXTextBookmark */ = A5DE4ECB12016CEB00ADABE2 /* PBXTextBookmark */;
+			A5DE4ECC12016CEB00ADABE2 /* PBXTextBookmark */ = A5DE4ECC12016CEB00ADABE2 /* PBXTextBookmark */;
+			A5DE4ECD12016CEB00ADABE2 /* PBXTextBookmark */ = A5DE4ECD12016CEB00ADABE2 /* PBXTextBookmark */;
+			A5DE4ECE12016CEB00ADABE2 /* PBXTextBookmark */ = A5DE4ECE12016CEB00ADABE2 /* PBXTextBookmark */;
+			A5DE4ED312016D7600ADABE2 /* PBXTextBookmark */ = A5DE4ED312016D7600ADABE2 /* PBXTextBookmark */;
+			A5DE4ED412016D7600ADABE2 /* PBXTextBookmark */ = A5DE4ED412016D7600ADABE2 /* PBXTextBookmark */;
+			A5DE4ED912016DA000ADABE2 /* PBXTextBookmark */ = A5DE4ED912016DA000ADABE2 /* PBXTextBookmark */;
+			A5DE4EDA12016DA000ADABE2 /* PBXTextBookmark */ = A5DE4EDA12016DA000ADABE2 /* PBXTextBookmark */;
+			A5DE4EDB12016DA000ADABE2 /* PBXTextBookmark */ = A5DE4EDB12016DA000ADABE2 /* PBXTextBookmark */;
+			A5DE4EE712016DF400ADABE2 /* PBXTextBookmark */ = A5DE4EE712016DF400ADABE2 /* PBXTextBookmark */;
+			A5DE4EE812016DF400ADABE2 /* PBXTextBookmark */ = A5DE4EE812016DF400ADABE2 /* PBXTextBookmark */;
+			A5DE4EE912016DF400ADABE2 /* PBXTextBookmark */ = A5DE4EE912016DF400ADABE2 /* PBXTextBookmark */;
+			A5DE4EEC12016E2700ADABE2 /* PBXTextBookmark */ = A5DE4EEC12016E2700ADABE2 /* PBXTextBookmark */;
+		};
+		sourceControlManager = A5DE4EBC12016C7200ADABE2 /* Source Control */;
+		userBuildSettings = {
+		};
+	};
+	A5DE4EAF12016C6200ADABE2 /* PieChartViewExample */ = {
+		isa = PBXExecutable;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		breakpointsEnabled = 0;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		dataTipCustomDataFormattersEnabled = 1;
+		dataTipShowTypeColumn = 1;
+		dataTipSortType = 0;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		dylibVariantSuffix = "";
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = PieChartViewExample;
+		showTypeColumn = 0;
+		sourceDirectories = (
+		);
+	};
+	A5DE4EBC12016C7200ADABE2 /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+			repositoryNamesForRoots = {
+				"" = "";
+			};
+		};
+	};
+	A5DE4EBD12016C7200ADABE2 /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+	A5DE4ECA12016CEB00ADABE2 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D3623240D0F684500981E51 /* PieChartViewExampleAppDelegate.h */;
+		name = "PieChartViewExampleAppDelegate.h: 8";
+		rLen = 0;
+		rLoc = 155;
+		rType = 0;
+		vrLen = 537;
+		vrLoc = 0;
+	};
+	A5DE4ECB12016CEB00ADABE2 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D3623250D0F684500981E51 /* PieChartViewExampleAppDelegate.m */;
+		name = "PieChartViewExampleAppDelegate.m: 8";
+		rLen = 0;
+		rLoc = 155;
+		rType = 0;
+		vrLen = 1259;
+		vrLoc = 0;
+	};
+	A5DE4ECC12016CEB00ADABE2 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28D7ACF60DDB3853001CB0EB /* PieChartViewExampleViewController.h */;
+		name = "PieChartViewExampleViewController.h: 7";
+		rLen = 0;
+		rLoc = 157;
+		rType = 0;
+		vrLen = 349;
+		vrLoc = 0;
+	};
+	A5DE4ECD12016CEB00ADABE2 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28D7ACF70DDB3853001CB0EB /* PieChartViewExampleViewController.m */;
+		name = "PieChartViewExampleViewController.m: 8";
+		rLen = 0;
+		rLoc = 158;
+		rType = 0;
+		vrLen = 1109;
+		vrLoc = 0;
+	};
+	A5DE4ECE12016CEB00ADABE2 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28D7ACF70DDB3853001CB0EB /* PieChartViewExampleViewController.m */;
+		name = "PieChartViewExampleViewController.m: 10";
+		rLen = 0;
+		rLoc = 229;
+		rType = 0;
+		vrLen = 737;
+		vrLoc = 0;
+	};
+	A5DE4ED312016D7600ADABE2 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28D7ACF70DDB3853001CB0EB /* PieChartViewExampleViewController.m */;
+		name = "PieChartViewExampleViewController.m: 10";
+		rLen = 0;
+		rLoc = 229;
+		rType = 0;
+		vrLen = 737;
+		vrLoc = 0;
+	};
+	A5DE4ED412016D7600ADABE2 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28D7ACF70DDB3853001CB0EB /* PieChartViewExampleViewController.m */;
+		name = "PieChartViewExampleViewController.m: 50";
+		rLen = 0;
+		rLoc = 1458;
+		rType = 0;
+		vrLen = 845;
+		vrLoc = 785;
+	};
+	A5DE4ED912016DA000ADABE2 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28D7ACF70DDB3853001CB0EB /* PieChartViewExampleViewController.m */;
+		name = "PieChartViewExampleViewController.m: 49";
+		rLen = 0;
+		rLoc = 1300;
+		rType = 0;
+		vrLen = 968;
+		vrLoc = 785;
+	};
+	A5DE4EDA12016DA000ADABE2 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28D7ACF60DDB3853001CB0EB /* PieChartViewExampleViewController.h */;
+		name = "PieChartViewExampleViewController.h: 7";
+		rLen = 0;
+		rLoc = 157;
+		rType = 0;
+		vrLen = 349;
+		vrLoc = 0;
+	};
+	A5DE4EDB12016DA000ADABE2 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28D7ACF60DDB3853001CB0EB /* PieChartViewExampleViewController.h */;
+		name = "PieChartViewExampleViewController.h: 11";
+		rLen = 0;
+		rLoc = 200;
+		rType = 0;
+		vrLen = 371;
+		vrLoc = 0;
+	};
+	A5DE4EE712016DF400ADABE2 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28D7ACF60DDB3853001CB0EB /* PieChartViewExampleViewController.h */;
+		name = "PieChartViewExampleViewController.h: 11";
+		rLen = 0;
+		rLoc = 200;
+		rType = 0;
+		vrLen = 371;
+		vrLoc = 0;
+	};
+	A5DE4EE812016DF400ADABE2 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28D7ACF70DDB3853001CB0EB /* PieChartViewExampleViewController.m */;
+		name = "PieChartViewExampleViewController.m: 49";
+		rLen = 0;
+		rLoc = 1300;
+		rType = 0;
+		vrLen = 916;
+		vrLoc = 837;
+	};
+	A5DE4EE912016DF400ADABE2 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28D7ACF70DDB3853001CB0EB /* PieChartViewExampleViewController.m */;
+		name = "PieChartViewExampleViewController.m: 62";
+		rLen = 0;
+		rLoc = 1695;
+		rType = 0;
+		vrLen = 675;
+		vrLoc = 1327;
+	};
+	A5DE4EEC12016E2700ADABE2 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28D7ACF70DDB3853001CB0EB /* PieChartViewExampleViewController.m */;
+		name = "PieChartViewExampleViewController.m: 62";
+		rLen = 0;
+		rLoc = 1695;
+		rType = 0;
+		vrLen = 649;
+		vrLoc = 1371;
+	};
+}
