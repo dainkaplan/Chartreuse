@@ -60,13 +60,13 @@ PieChartItemColor PieChartItemColorFromColor(UIColor *color)
 
 @implementation PieChartView
 
-
 - (id)initWithFrame:(CGRect)aRect
 {	
     if (self = [super initWithFrame:aRect]) {
 		_gradientFillColor = PieChartItemColorMake(0.0, 0.0, 0.0, 0.4);
 		_gradientStart = 0.3;
 		_gradientEnd = 1.0;
+        _drawGradientOverlay = YES;
 		self.backgroundColor = [UIColor clearColor];
 	}
 	return self;
@@ -80,6 +80,7 @@ PieChartItemColor PieChartItemColorFromColor(UIColor *color)
 		_gradientFillColor = PieChartItemColorMake(0.0, 0.0, 0.0, 0.4);
 		_gradientStart = 0.3;
 		_gradientEnd = 1.0;
+        _drawGradientOverlay = YES;
 		self.backgroundColor = [UIColor clearColor];
 	}
 	return self;
@@ -136,6 +137,11 @@ PieChartItemColor PieChartItemColorFromColor(UIColor *color)
 {
 	_gradientStart = start;
 	_gradientEnd = end;
+}
+
+- (void)setDrawGradientOverlay:(BOOL)drawGradientOverlay
+{
+    _drawGradientOverlay = drawGradientOverlay;
 }
 
 // Only override drawRect: if you perform custom drawing.
@@ -207,25 +213,26 @@ PieChartItemColor PieChartItemColorFromColor(UIColor *color)
 		}	
 	}
 	
-	// Now we want to create an overlay for the gradient to make it look *fancy*
-	// We do this by:
-	// (0) Create circle mask
-	// (1) Creating a blanket gradient image the size of the piechart
-	// (2) Masking the gradient image with a circle the same size as the piechart
-	// (3) compositing the gradient onto the piechart
-	
-	// (0)
-	UIImage *maskImage = [self createCircleMaskUsingCenterPoint: CGPointMake(x, y) andRadius: r];
-	
-	// (1)
-	UIImage *gradientImage = [self createGradientImageUsingRect: self.bounds];
-	
-	// (2)
-	UIImage *fadeImage = [self maskImage:gradientImage withMask:maskImage];
-	
-	// (3)
-	CGContextDrawImage(ctx, self.bounds, fadeImage.CGImage);
-	
+    if (_drawGradientOverlay) {
+        // Now we want to create an overlay for the gradient to make it look *fancy*
+        // We do this by:
+        // (0) Create circle mask
+        // (1) Creating a blanket gradient image the size of the piechart
+        // (2) Masking the gradient image with a circle the same size as the piechart
+        // (3) compositing the gradient onto the piechart
+        
+        // (0)
+        UIImage *maskImage = [self createCircleMaskUsingCenterPoint: CGPointMake(x, y) andRadius: r];
+        
+        // (1)
+        UIImage *gradientImage = [self createGradientImageUsingRect: self.bounds];
+        
+        // (2)
+        UIImage *fadeImage = [self maskImage:gradientImage withMask:maskImage];
+        
+        // (3)
+        CGContextDrawImage(ctx, self.bounds, fadeImage.CGImage);
+    }
 	// Finally set shadows
 	self.layer.shadowRadius = 10;
 	self.layer.shadowColor = [UIColor blackColor].CGColor;
