@@ -5,7 +5,6 @@
 //  Copyright 2010 Dain Kaplan. All rights reserved.
 //
 
-#import <QuartzCore/QuartzCore.h>
 #import "PieChartView.h"
 
 @interface PieChartItem : NSObject
@@ -243,12 +242,6 @@ PieChartItemColor PieChartItemColorFromColor(UIColor *color)
         // (3)
         CGContextDrawImage(ctx, self.bounds, fadeImage.CGImage);
     }
-    
-	// Finally set shadows
-	self.layer.shadowRadius = 10;
-	self.layer.shadowColor = [UIColor blackColor].CGColor;
-	self.layer.shadowOpacity = 0.6;
-	self.layer.shadowOffset = CGSizeMake(0.0, 5.0);
 }
 
 - (UIImage *)createCircleMaskUsingCenterPoint:(CGPoint)point andRadius:(float)radius
