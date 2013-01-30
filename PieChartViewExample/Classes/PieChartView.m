@@ -35,6 +35,21 @@
 
 @end
 
+PieChartItemColor PieChartItemColorFromColor(UIColor *color)
+{
+    PieChartItemColor pieChartItemColor = PieChartItemColorMake(0, 0, 0, 0);
+    
+    if ([color getRed:&pieChartItemColor.red green:&pieChartItemColor.green blue:&pieChartItemColor.blue alpha:&pieChartItemColor.alpha] == NO) {
+        CGFloat white = 0;
+        if ([color getWhite:&white alpha:&pieChartItemColor.alpha]) {
+            pieChartItemColor.red = white;
+            pieChartItemColor.green = white;
+            pieChartItemColor.blue = white;
+        }
+    }
+    
+    return pieChartItemColor;
+}
 
 @interface PieChartView()
 // Private interface

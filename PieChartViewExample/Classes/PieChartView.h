@@ -20,6 +20,8 @@ PieChartItemColorMake(float r, float g, float b, float a)
 	PieChartItemColor c; c.red = r; c.green = g; c.blue = b; c.alpha = a; return c;
 }
 
+PieChartItemColor PieChartItemColorFromColor(UIColor *color);
+
 @interface PieChartView : UIView {	
 	NSMutableArray *_pieItems;
 	float _sum;
