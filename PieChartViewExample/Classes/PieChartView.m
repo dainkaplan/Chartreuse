@@ -93,6 +93,8 @@ PieChartItemColor PieChartItemColorFromColor(UIColor *color)
 	}
 	
 	_sum = 0.0;
+    
+    [self setNeedsDisplay];
 }
 
 - (void)addItemValue:(float)value withColor:(PieChartItemColor)color
@@ -111,37 +113,45 @@ PieChartItemColor PieChartItemColorFromColor(UIColor *color)
 	[item release];
 	
 	_sum += value;
+    
+    [self setNeedsDisplay];
 }
 
 - (void)setNoDataFillColorRed:(float)r green:(float)g blue:(float)b
 {
 	_noDataFillColor = PieChartItemColorMake(r, g, b, 1.0);
+    [self setNeedsDisplay];
 }
 
 - (void)setNoDataFillColor:(PieChartItemColor)color
 {
 	_noDataFillColor = color;
+    [self setNeedsDisplay];
 }
 
 - (void)setGradientFillColorRed:(float)r green:(float)g blue:(float)b
 {
 	_gradientFillColor = PieChartItemColorMake(r, g, b, 0.4);
+    [self setNeedsDisplay];
 }
 
 - (void)setGradientFillColor:(PieChartItemColor)color
 {
 	_gradientFillColor = color;
+    [self setNeedsDisplay];
 }
 
 - (void)setGradientFillStart:(float)start andEnd:(float)end
 {
 	_gradientStart = start;
 	_gradientEnd = end;
+    [self setNeedsDisplay];
 }
 
 - (void)setDrawGradientOverlay:(BOOL)drawGradientOverlay
 {
     _drawGradientOverlay = drawGradientOverlay;
+    [self setNeedsDisplay];
 }
 
 // Only override drawRect: if you perform custom drawing.
@@ -233,6 +243,7 @@ PieChartItemColor PieChartItemColorFromColor(UIColor *color)
         // (3)
         CGContextDrawImage(ctx, self.bounds, fadeImage.CGImage);
     }
+    
 	// Finally set shadows
 	self.layer.shadowRadius = 10;
 	self.layer.shadowColor = [UIColor blackColor].CGColor;
