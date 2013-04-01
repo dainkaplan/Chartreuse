@@ -5,7 +5,6 @@
 //  Copyright 2010 Dain Kaplan. All rights reserved.
 //
 
-#import <QuartzCore/QuartzCore.h>
 #import "PieChartView.h"
 
 @interface PieChartItem : NSObject
@@ -35,6 +34,21 @@
 
 @end
 
+PieChartItemColor PieChartItemColorFromColor(UIColor *color)
+{
+    PieChartItemColor pieChartItemColor = PieChartItemColorMake(0, 0, 0, 0);
+    
+    if ([color getRed:&pieChartItemColor.red green:&pieChartItemColor.green blue:&pieChartItemColor.blue alpha:&pieChartItemColor.alpha] == NO) {
+        CGFloat white = 0;
+        if ([color getWhite:&white alpha:&pieChartItemColor.alpha]) {
+            pieChartItemColor.red = white;
+            pieChartItemColor.green = white;
+            pieChartItemColor.blue = white;
+        }
+    }
+    
+    return pieChartItemColor;
+}
 
 @interface PieChartView()
 // Private interface
@@ -45,13 +59,13 @@
 
 @implementation PieChartView
 
-
 - (id)initWithFrame:(CGRect)aRect
 {	
     if (self = [super initWithFrame:aRect]) {
 		_gradientFillColor = PieChartItemColorMake(0.0, 0.0, 0.0, 0.4);
 		_gradientStart = 0.3;
 		_gradientEnd = 1.0;
+        _drawGradientOverlay = YES;
 		self.backgroundColor = [UIColor clearColor];
 	}
 	return self;
@@ -65,6 +79,7 @@
 		_gradientFillColor = PieChartItemColorMake(0.0, 0.0, 0.0, 0.4);
 		_gradientStart = 0.3;
 		_gradientEnd = 1.0;
+        _drawGradientOverlay = YES;
 		self.backgroundColor = [UIColor clearColor];
 	}
 	return self;
@@ -77,6 +92,8 @@
 	}
 	
 	_sum = 0.0;
+    
+    [self setNeedsDisplay];
 }
 
 - (void)addItemValue:(float)value withColor:(PieChartItemColor)color
@@ -95,32 +112,45 @@
 	[item release];
 	
 	_sum += value;
+    
+    [self setNeedsDisplay];
 }
 
 - (void)setNoDataFillColorRed:(float)r green:(float)g blue:(float)b
 {
 	_noDataFillColor = PieChartItemColorMake(r, g, b, 1.0);
+    [self setNeedsDisplay];
 }
 
 - (void)setNoDataFillColor:(PieChartItemColor)color
 {
 	_noDataFillColor = color;
+    [self setNeedsDisplay];
 }
 
 - (void)setGradientFillColorRed:(float)r green:(float)g blue:(float)b
 {
 	_gradientFillColor = PieChartItemColorMake(r, g, b, 0.4);
+    [self setNeedsDisplay];
 }
 
 - (void)setGradientFillColor:(PieChartItemColor)color
 {
 	_gradientFillColor = color;
+    [self setNeedsDisplay];
 }
 
 - (void)setGradientFillStart:(float)start andEnd:(float)end
 {
 	_gradientStart = start;
 	_gradientEnd = end;
+    [self setNeedsDisplay];
+}
+
+- (void)setDrawGradientOverlay:(BOOL)drawGradientOverlay
+{
+    _drawGradientOverlay = drawGradientOverlay;
+    [self setNeedsDisplay];
 }
 
 // Only override drawRect: if you perform custom drawing.
@@ -146,7 +176,7 @@
 	// Loop through all the values and draw the graph
 	startDeg = 0;
 	
-	NSLog(@"Total of %d pie items to draw.", [_pieItems count]);
+	// NSLog(@"Total of %d pie items to draw.", [_pieItems count]);
 	
 	NSUInteger idx = 0;
 	for( idx = 0; idx < [_pieItems count]; idx++ ) {
@@ -161,7 +191,7 @@
 		if( theta > 0.0 ) {
 			endDeg += theta;
 			
-			NSLog(@"Drawing arc [%d] from %f to %f.", idx, startDeg, endDeg);
+			// NSLog(@"Drawing arc [%d] from %f to %f.", idx, startDeg, endDeg);
 			
 			if( startDeg != endDeg ) {
 				CGContextSetRGBFillColor(ctx, color.red, color.green, color.blue, color.alpha );
@@ -181,7 +211,7 @@
 		startDeg = endDeg;
 		endDeg = 360.0;
 		
-		NSLog(@"Drawing bg arc from %f to %f.", startDeg, endDeg);
+		// NSLog(@"Drawing bg arc from %f to %f.", startDeg, endDeg);
 		
 		if( startDeg != endDeg ) {
 			CGContextSetRGBFillColor(ctx, _noDataFillColor.red, _noDataFillColor.green, _noDataFillColor.blue, _noDataFillColor.alpha );
@@ -192,30 +222,26 @@
 		}	
 	}
 	
-	// Now we want to create an overlay for the gradient to make it look *fancy*
-	// We do this by:
-	// (0) Create circle mask
-	// (1) Creating a blanket gradient image the size of the piechart
-	// (2) Masking the gradient image with a circle the same size as the piechart
-	// (3) compositing the gradient onto the piechart
-	
-	// (0)
-	UIImage *maskImage = [self createCircleMaskUsingCenterPoint: CGPointMake(x, y) andRadius: r];
-	
-	// (1)
-	UIImage *gradientImage = [self createGradientImageUsingRect: self.bounds];
-	
-	// (2)
-	UIImage *fadeImage = [self maskImage:gradientImage withMask:maskImage];
-	
-	// (3)
-	CGContextDrawImage(ctx, self.bounds, fadeImage.CGImage);
-	
-	// Finally set shadows
-	self.layer.shadowRadius = 10;
-	self.layer.shadowColor = [UIColor blackColor].CGColor;
-	self.layer.shadowOpacity = 0.6;
-	self.layer.shadowOffset = CGSizeMake(0.0, 5.0);
+    if (_drawGradientOverlay) {
+        // Now we want to create an overlay for the gradient to make it look *fancy*
+        // We do this by:
+        // (0) Create circle mask
+        // (1) Creating a blanket gradient image the size of the piechart
+        // (2) Masking the gradient image with a circle the same size as the piechart
+        // (3) compositing the gradient onto the piechart
+        
+        // (0)
+        UIImage *maskImage = [self createCircleMaskUsingCenterPoint: CGPointMake(x, y) andRadius: r];
+        
+        // (1)
+        UIImage *gradientImage = [self createGradientImageUsingRect: self.bounds];
+        
+        // (2)
+        UIImage *fadeImage = [self maskImage:gradientImage withMask:maskImage];
+        
+        // (3)
+        CGContextDrawImage(ctx, self.bounds, fadeImage.CGImage);
+    }
 }
 
 - (UIImage *)createCircleMaskUsingCenterPoint:(CGPoint)point andRadius:(float)radius
