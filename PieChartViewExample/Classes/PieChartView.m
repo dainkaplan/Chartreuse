@@ -130,9 +130,9 @@
 	float startDeg = 0;
 	float endDeg = 0;
 	
-	int x = self.bounds.size.width / 2;
-	int y = self.bounds.size.height / 2;
-	int r = (self.bounds.size.width>self.bounds.size.height?self.bounds.size.height:self.bounds.size.width)/2 * 0.8;
+	float x = self.bounds.size.width * 0.5f;
+	float y = self.bounds.size.height * 0.5f;
+	float r = (self.bounds.size.width>self.bounds.size.height?self.bounds.size.height:self.bounds.size.width)/2 * 0.8;
 	
 	CGContextRef ctx = UIGraphicsGetCurrentContext();
 	CGContextSetRGBStrokeColor(ctx, 0.0, 0.0, 0.0, 0.4);
