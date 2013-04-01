@@ -130,8 +130,8 @@
 	float startDeg = 0;
 	float endDeg = 0;
 	
-	int x = self.center.x;
-	int y = self.center.y;
+	int x = self.bounds.size.width / 2;
+	int y = self.bounds.size.height / 2;
 	int r = (self.bounds.size.width>self.bounds.size.height?self.bounds.size.height:self.bounds.size.width)/2 * 0.8;
 	
 	CGContextRef ctx = UIGraphicsGetCurrentContext();
