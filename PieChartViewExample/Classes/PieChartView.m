@@ -6,6 +6,7 @@
 //
 
 #import "PieChartView.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface PieChartItem : NSObject
 {
@@ -55,18 +56,30 @@ PieChartItemColor PieChartItemColorFromColor(UIColor *color)
 - (UIImage*) maskImage:(UIImage *)image withMask:(UIImage *)maskImage;
 - (UIImage *)createCircleMaskUsingCenterPoint:(CGPoint)point andRadius:(float)radius;
 - (UIImage *)createGradientImageUsingRect:(CGRect)rect;
+- (id)init;
 @end
 
 @implementation PieChartView
 
+- (id)init {
+	_gradientFillColor = PieChartItemColorMake(0.0, 0.0, 0.0, 0.4);
+	_gradientStart = 0.3;
+	_gradientEnd = 1.0;
+	_drawGradientOverlay = YES;
+	self.backgroundColor = [UIColor clearColor];
+	
+	// Set shadows
+	self.layer.shadowRadius = 10;
+	self.layer.shadowColor = [UIColor blackColor].CGColor;
+	self.layer.shadowOpacity = 0.6;
+	self.layer.shadowOffset = CGSizeMake(0.0, 5.0);
+	return self;
+}
+
 - (id)initWithFrame:(CGRect)aRect
 {	
     if (self = [super initWithFrame:aRect]) {
-		_gradientFillColor = PieChartItemColorMake(0.0, 0.0, 0.0, 0.4);
-		_gradientStart = 0.3;
-		_gradientEnd = 1.0;
-        _drawGradientOverlay = YES;
-		self.backgroundColor = [UIColor clearColor];
+		[self init];
 	}
 	return self;
 }
@@ -76,11 +89,7 @@ PieChartItemColor PieChartItemColorFromColor(UIColor *color)
 - (id)initWithCoder:(NSCoder *)decoder
 {	
     if (self = [super initWithCoder:decoder]) {
-		_gradientFillColor = PieChartItemColorMake(0.0, 0.0, 0.0, 0.4);
-		_gradientStart = 0.3;
-		_gradientEnd = 1.0;
-        _drawGradientOverlay = YES;
-		self.backgroundColor = [UIColor clearColor];
+		[self init];
 	}
 	return self;
 }
