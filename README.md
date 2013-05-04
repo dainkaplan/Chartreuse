@@ -7,6 +7,8 @@ Contains source and a fully working universal app project.
 
 (I'd also check out [core-plot](http://code.google.com/p/core-plot/) to make sure it *isn't* what you want, first; chartreuse is very light-weight.)
 
+![iOS for iPhone screenshot](iphone-screenshot.png "iOS for iPhone screenshot")
+
 ## Using is easy as pie... ##
 
 Basically, grab the two main files (`PieChartView.[h|m]`) from `PieChartViewExample/Classes/` and add them to your project (or create a submodule or whatever). Then:
