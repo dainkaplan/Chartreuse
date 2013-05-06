@@ -65,6 +65,8 @@ PieChartItemColor PieChartItemColorFromColor(UIColor *color)
 	_gradientFillColor = PieChartItemColorMake(0.0, 0.0, 0.0, 0.4);
 	_gradientStart = 0.3;
 	_gradientEnd = 1.0;
+    _lineAroundStrokeColor = PieChartItemColorMake(0.0, 0.0, 0.0, 0.4);
+    _lineAroundSpacing = 0.0;
 	_drawGradientOverlay = YES;
 	self.backgroundColor = [UIColor clearColor];
 	
@@ -162,6 +164,24 @@ PieChartItemColor PieChartItemColorFromColor(UIColor *color)
     [self setNeedsDisplay];
 }
 
+- (void)setLineAroundColorRed:(float)r green:(float)g blue:(float)b
+{
+	_lineAroundStrokeColor = PieChartItemColorMake(r, g, b, 0.4);
+    [self setNeedsDisplay];
+}
+
+- (void)setLineAroundColor:(PieChartItemColor)color
+{
+	_lineAroundStrokeColor = color;
+    [self setNeedsDisplay];
+}
+
+- (void)setLineAroundSpacing:(float)spacing
+{
+	_lineAroundSpacing = spacing;
+    [self setNeedsDisplay];
+}
+
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect {
@@ -174,11 +194,11 @@ PieChartItemColor PieChartItemColorFromColor(UIColor *color)
 	float r = (self.bounds.size.width>self.bounds.size.height?self.bounds.size.height:self.bounds.size.width)/2 * 0.8;
 	
 	CGContextRef ctx = UIGraphicsGetCurrentContext();
-	CGContextSetRGBStrokeColor(ctx, 0.0, 0.0, 0.0, 0.4);
+	CGContextSetRGBStrokeColor(ctx, _lineAroundStrokeColor.red, _lineAroundStrokeColor.green, _lineAroundStrokeColor.blue, _lineAroundStrokeColor.alpha);
 	CGContextSetLineWidth(ctx, 1.0);
 	
 	// Draw a thin line around the circle
-	CGContextAddArc(ctx, x, y, r, 0.0, 360.0*M_PI/180.0, 0);
+	CGContextAddArc(ctx, x, y, r + _lineAroundSpacing, 0.0, 360.0*M_PI/180.0, 0);
 	CGContextClosePath(ctx);
 	CGContextDrawPath(ctx, kCGPathStroke);
 	
