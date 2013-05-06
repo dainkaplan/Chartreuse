@@ -27,10 +27,12 @@ PieChartItemColor PieChartItemColorFromColor(UIColor *color);
 	float _sum;
 	PieChartItemColor _noDataFillColor;
 	PieChartItemColor _gradientFillColor;
+	PieChartItemColor _lineAroundStrokeColor;
 	
     BOOL _drawGradientOverlay;
 	float _gradientStart;
 	float _gradientEnd;
+   	float _lineAroundSpacing;
 }
 
 - (void)clearItems;
@@ -40,6 +42,9 @@ PieChartItemColor PieChartItemColorFromColor(UIColor *color);
 - (void)setGradientFillColorRed:(float)r green:(float)g blue:(float)b;
 - (void)setGradientFillColor:(PieChartItemColor)color;
 - (void)setDrawGradientOverlay:(BOOL)drawGradientOverlay;
+- (void)setLineAroundSpacing:(float)spacing;
+- (void)setLineAroundColorRed:(float)r green:(float)g blue:(float)b;
+- (void)setLineAroundColor:(PieChartItemColor)color;
 
 // Values ranging from 0.0-1.0 specifying where to begin/end the fills. 
 // E.g. A start of 0.0 starts at the top of the piechart, and 0.3 starts a third of the way from the top.
